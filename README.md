@@ -1,5 +1,11 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+## CI/CD
+
+- Mirroring: pushes to `main` automatically mirror to `fashionzoommagazinefz-cmyk/fashion-zoom-next` via GitHub Actions.
+- Workflow: [Mirror to Secondary Repo](.github/workflows/mirror.yml)
+- Status: ![Mirror](https://github.com/itzpraveen/fashion-zoom-next/actions/workflows/mirror.yml/badge.svg)
+
 ## Getting Started
 
 First, run the development server:
