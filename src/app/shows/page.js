@@ -17,7 +17,7 @@ export default function ShowsPage() {
       {/* Page-specific hero */}
       <section className="relative isolate overflow-hidden text-white">
         <Image
-          src="/assets/hero/academy-hero.png"
+          src="/assets/hero/academy-hero.png?v=2"
           alt="Fashion Zoom editorial portrait in red hat — fashion shows"
           fill
           priority

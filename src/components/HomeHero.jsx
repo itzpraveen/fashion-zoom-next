@@ -9,7 +9,7 @@ export default function HomeHero() {
   return (
     <section className="relative isolate overflow-hidden text-white">
       <Image
-        src="/assets/hero/academy-hero.png"
+        src="/assets/hero/academy-hero.png?v=2"
         alt="Fashion Zoom editorial portrait in red hat"
         fill
         priority
