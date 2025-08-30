@@ -53,7 +53,10 @@ jobs:
             echo "Non-fast-forward for branches. Falling back to --mirror push (force)." >&2
             git fetch --prune origin
             git fetch --prune mirror || true
-            git push --mirror mirror
+            # Force sync branches and tags only (avoid pushing remote-tracking refs)
+            git push mirror --force --prune \
+              +refs/heads/*:refs/heads/* \
+              +refs/tags/*:refs/tags/*
           fi
           if ! git push --tags mirror; then
             echo "Non-fast-forward for tags. Forcing tags update." >&2
