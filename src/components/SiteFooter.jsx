@@ -23,6 +23,7 @@ export default function SiteFooter() {
         <div className="mt-6 flex items-center justify-between gap-4 text-xs text-gray-400">
           <div className="flex items-center gap-4">
             <Link href="/privacy" className="underline underline-offset-4">Privacy Policy</Link>
+            <Link href="/inclusion" className="underline underline-offset-4">Diversity & Inclusion</Link>
           </div>
           <button onClick={() => setLang(lang === 'en' ? 'ml' : 'en')} className="px-2 py-1 rounded-md bg-white text-black hover:bg-gray-100 border" aria-label="Toggle language">
             {lang === 'en' ? 'മലയാളം' : 'English'}

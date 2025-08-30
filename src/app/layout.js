@@ -8,7 +8,7 @@ import SiteFooter from "@/components/SiteFooter";
 import PageTransition from "@/components/PageTransition";
 
 const siteName = "Fashion Zoom Magazine";
-const siteDescription = "Kerala’s premier fashion magazine and modeling academy offering professional training, seasonal fashion shows, and editorial portfolio features since 2013.";
+const siteDescription = "Kerala fashion shows across Trivandrum, Kochi, Calicut, Thrissur, and Kottayam — inclusive categories for Kids, Teens, and Adults, plus a modeling academy and editorial portfolios since 2013.";
 
 const fontSans = Inter({ subsets: ["latin"], variable: "--font-sans" });
 const fontDisplay = Playfair_Display({ subsets: ["latin"], variable: "--font-display" });

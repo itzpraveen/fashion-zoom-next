@@ -13,6 +13,32 @@ export default function ShowsPage() {
     <section className="py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <PageTitle sectionKey="shows" />
+        <div className="mb-10 text-lg text-gray-700">Walk seasonal fashion shows across Kerala — inclusive categories, supervised rehearsals, and real runway experience.</div>
+        <h3 className="text-2xl font-bold mb-4">Upcoming shows</h3>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+          {[
+            { city: 'Kochi', date: 'Dates announcing soon' },
+            { city: 'Calicut', date: 'Dates announcing soon' },
+            { city: 'Trivandrum', date: 'Dates announcing soon' },
+          ].map((e, i) => (
+            <Reveal key={e.city} className="rounded-lg border p-5 bg-white shadow-sm" delay={i * 0.05}>
+              <div className="font-semibold">{e.city}</div>
+              <div className="text-sm text-gray-600">{e.date}</div>
+              <div className="mt-3">
+                <a href={`/admissions?preferredCity=${encodeURIComponent(e.city)}`} className="text-[#F81F2E] underline underline-offset-4">Register interest</a>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+        <h3 className="text-2xl font-bold mb-4">Categories & eligibility</h3>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+          {[{ t:'Kids (3–12)', d:'Fun, age‑appropriate sequences and styling with parent support.' },{ t:'Teens (13–17)', d:'Runway, grooming, and camera presence with mentoring.' },{ t:'Adults (18+)', d:'Contemporary and traditional segments with editorial styling.' }].map((c,i)=>(
+            <Reveal key={c.t} className="rounded-lg border p-5 bg-white shadow-sm" delay={i*0.05}>
+              <div className="font-semibold">{c.t}</div>
+              <div className="text-sm text-gray-600 mt-1">{c.d}</div>
+            </Reveal>
+          ))}
+        </div>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
           <div>
             <h3 className="text-2xl font-bold mb-4">Season 8 — Current</h3>
@@ -45,13 +71,31 @@ export default function ShowsPage() {
           <Reveal className="rounded-lg border p-4" delay={0.05}>
             <div className="font-medium">Season 7 (2023–2024)</div>
             <ul className="list-disc pl-5 mt-2">
+              <li>Event: Thrissur — Aug 25, 2024 (Hotel Holiday Park)</li>
               <li>Multiple category winners</li>
-              <li>Traditional Fashion Fest highlights</li>
               <li>State‑wide participation</li>
             </ul>
           </Reveal>
         </div>
       </div>
+      {/* Structured data (Event Series) */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'EventSeries',
+            name: 'Fashion Zoom — Seasonal Fashion Shows',
+            eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
+            organizer: {
+              '@type': 'Organization',
+              name: 'Fashion Zoom Magazine',
+            },
+            location: [{ '@type': 'Place', name: 'Kerala, India' }],
+            audience: { '@type': 'Audience', audienceType: ['Kids','Teens','Adults'] },
+          }),
+        }}
+      />
     </section>
   );
 }

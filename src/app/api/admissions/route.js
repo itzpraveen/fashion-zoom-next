@@ -4,8 +4,12 @@ const schema = z.object({
   fullName: z.string().min(2),
   phone: z.string().min(7).max(20),
   email: z.string().email().optional().or(z.literal("")),
-  city: z.string().min(2),
+  preferredCity: z.enum(["Trivandrum","Kochi","Calicut","Thrissur","Kottayam"]),
+  ageGroup: z.enum(["Kids (3–12)","Teens (13–17)","Adults (18+)"]),
   goals: z.string().min(10),
+  howHeard: z.string().optional().or(z.literal("")),
+  isParentGuardian: z.union([z.literal("on"), z.literal("true"), z.literal("false"), z.literal("")]).optional(),
+  consent: z.union([z.literal("on"), z.literal("true")]),
 });
 
 export async function POST(request) {
@@ -26,7 +30,7 @@ export async function POST(request) {
       const headers = { "Content-Type": "application/json" };
       const body = isSlack
         ? JSON.stringify({
-            text: `New Admissions Lead: *${data.fullName}*\n• Phone: ${data.phone}\n• Email: ${data.email || "—"}\n• City: ${data.city}\n• Goals: ${data.goals}`,
+            text: `New Admissions Lead: *${data.fullName}*\n• Phone: ${data.phone}\n• Email: ${data.email || "—"}\n• City: ${data.preferredCity}\n• Age group: ${data.ageGroup}\n• Heard via: ${data.howHeard || "—"}\n• Parent/Guardian: ${data.isParentGuardian ? "Yes" : "No"}\n• Goals: ${data.goals}`,
           })
         : JSON.stringify(payload);
       await fetch(webhook, { method: "POST", headers, body });

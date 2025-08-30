@@ -10,49 +10,73 @@ export default function Home() {
       {/* Hero */}
       <HomeHero />
 
-      {/* Highlights */}
+      {/* Shows-first Highlights */}
       <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">About Fashion Zoom</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">Kerala Fashion Shows</h2>
             <div className="h-1 w-20 bg-[#F81F2E] rounded mx-auto mb-6"></div>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Since 2013, Fashion Zoom has been Kerala’s leading fashion magazine and modeling academy. We help aspiring and experienced talents grow with professional training, editorial portfolios, and real runway opportunities across multiple cities.
+              Walk with us across Kerala — Trivandrum, Kochi, Calicut, Thrissur, and Kottayam. Inclusive categories for Kids, Teens, and Adults with real runway experience and professional guidance.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <Reveal className="text-center rounded-lg border p-6 bg-white shadow-sm" delay={0.05}>
-              <h3 className="text-xl font-semibold mb-2">Professional Training</h3>
-              <p className="text-gray-600">Structured courses for ages 3–60 led by industry mentors — runway, grooming, camera presence, and more.</p>
+              <h3 className="text-xl font-semibold mb-2">Categories</h3>
+              <p className="text-gray-600">Kids (3–12), Teens (13–17), Adults (18+) — with Traditional and Contemporary segments.</p>
             </Reveal>
             <Reveal className="text-center rounded-lg border p-6 bg-white shadow-sm" delay={0.1}>
-              <h3 className="text-xl font-semibold mb-2">Fashion Shows</h3>
-              <p className="text-gray-600">Seasonal shows across Kerala — Teen, Miss, Traditional, and Kids categories with stage experience.</p>
+              <h3 className="text-xl font-semibold mb-2">State‑wide</h3>
+              <p className="text-gray-600">Multiple city chapters and seasonal events across Kerala.</p>
             </Reveal>
             <Reveal className="text-center rounded-lg border p-6 bg-white shadow-sm" delay={0.15}>
-              <h3 className="text-xl font-semibold mb-2">Magazine & Portfolio</h3>
-              <p className="text-gray-600">Editorial features and portfolio shoots to build your profile and start pitching to brands.</p>
+              <h3 className="text-xl font-semibold mb-2">Family‑friendly</h3>
+              <p className="text-gray-600">Age‑appropriate direction, supervised rehearsals, and a welcoming community.</p>
             </Reveal>
           </div>
         </div>
       </section>
 
-      {/* Shows preview */}
+      {/* Partners / Seen in */}
+      <section className="py-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center text-xs uppercase tracking-wider text-gray-500 mb-4">Community & Partners</div>
+          <div className="flex flex-wrap items-center justify-center gap-6 text-sm text-gray-600">
+            <span className="px-3 py-1 rounded border bg-gray-50">Kerala Chapters</span>
+            <span className="px-3 py-1 rounded border bg-gray-50">Local Designers</span>
+            <span className="px-3 py-1 rounded border bg-gray-50">Photo Studios</span>
+            <span className="px-3 py-1 rounded border bg-gray-50">Event Partners</span>
+          </div>
+        </div>
+      </section>
+
+      {/* Upcoming shows */}
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">Fashion Shows</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">Upcoming Shows</h2>
             <div className="h-1 w-20 bg-[#F81F2E] rounded mx-auto"></div>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {["/assets/fashion-show-1.jpg","/assets/fashion-show-2.jpg","/assets/fashion-show-3.jpg"].map((src, i) => (
-              <Reveal key={src} className="rounded-lg overflow-hidden shadow-md">
-                <Image src={src} alt={`Fashion Zoom runway highlight ${i+1} in Kerala`} width={800} height={600} className="w-full h-auto" />
+            {[
+              { city: 'Kochi', date: 'Dates announcing soon', img: '/assets/fashion-show-1.jpg' },
+              { city: 'Calicut', date: 'Dates announcing soon', img: '/assets/fashion-show-2.jpg' },
+              { city: 'Trivandrum', date: 'Dates announcing soon', img: '/assets/fashion-show-3.jpg' },
+            ].map((e, i) => (
+              <Reveal key={e.city} className="rounded-lg overflow-hidden border shadow-sm bg-white">
+                <Image src={e.img} alt={`Fashion Zoom upcoming show — ${e.city}`} width={800} height={600} className="w-full h-auto" />
+                <div className="p-4 flex items-center justify-between">
+                  <div>
+                    <div className="font-semibold">{e.city}</div>
+                    <div className="text-sm text-gray-600">{e.date}</div>
+                  </div>
+                  <Link href={`/admissions?preferredCity=${encodeURIComponent(e.city)}`} className="text-[#F81F2E] underline underline-offset-4">Register interest</Link>
+                </div>
               </Reveal>
             ))}
           </div>
           <div className="text-center mt-8">
-            <Link href="/shows" className="inline-flex items-center underline underline-offset-4 text-[#F81F2E]">Explore shows →</Link>
+            <Link href="/shows" className="inline-flex items-center underline underline-offset-4 text-[#F81F2E]">All shows & seasons →</Link>
           </div>
         </div>
       </section>

@@ -2,10 +2,10 @@ export const locales = {
   en: {
     nav: { home: 'Home', about: 'About', why: 'Why', courses: 'Courses', shows: 'Fashion Shows', portfolio: 'Portfolio', admissions: 'Admissions', magazine: 'Magazine', faq: 'FAQ', contact: 'Contact' },
     hero: {
-      title: "Kerala’s Premier Fashion Magazine",
-      subtitle: '& Modeling Academy Since 2013',
-      ctaPrimary: 'Join Our Academy',
-      ctaSecondary: 'View Fashion Shows'
+      title: "Kerala Fashion Shows",
+      subtitle: 'Walk with us — Kids • Teens • Adults',
+      ctaPrimary: 'Register to Walk',
+      ctaSecondary: 'Past Seasons'
     },
     sections: {
       about: 'About Fashion Zoom',
@@ -38,4 +38,3 @@ export const locales = {
     },
   },
 }
-

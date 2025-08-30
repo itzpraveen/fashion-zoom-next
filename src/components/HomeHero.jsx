@@ -31,7 +31,7 @@ export default function HomeHero() {
           dangerouslySetInnerHTML={{ __html: L.hero.subtitle }}
         />
         <p className="text-lg mb-10 max-w-3xl mx-auto text-gray-200">
-          Build confidence, stage presence, and a professional portfolio with guided training and real opportunities — from runway shows to editorial features across Kerala.
+          Build confidence, stage presence, and a professional portfolio with guided training and real opportunities — from runway shows to editorial features across Kerala. Inclusive. Safe. Family‑friendly.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Link
