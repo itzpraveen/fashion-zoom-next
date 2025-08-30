@@ -14,7 +14,7 @@ export default function HomeHero() {
         fill
         priority
         sizes="100vw"
-        className="object-cover object-center -z-10"
+        className="object-cover object-right -z-10"
       />
       <div className="absolute inset-0 -z-10 bg-black/55" />
       <div className="absolute inset-0 -z-10 bg-gradient-to-tr from-[#F81F2E]/25 via-transparent to-transparent" />
