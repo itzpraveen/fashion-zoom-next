@@ -9,16 +9,17 @@ export default function HomeHero() {
   return (
     <section className="relative isolate overflow-hidden text-white">
       <Image
-        src="/assets/fashion-show-2.jpg"
-        alt="Fashion Zoom runway at Kerala event"
+        src="/assets/hero/academy-hero.webp"
+        alt="Fashion Zoom Modeling Academy — red editorial portrait"
         fill
         priority
+        sizes="100vw"
         className="object-cover object-center -z-10"
       />
-      <div className="absolute inset-0 -z-10 bg-black/60" />
+      <div className="absolute inset-0 -z-10 bg-black/55" />
       <div className="absolute inset-0 -z-10 bg-gradient-to-tr from-[#F81F2E]/25 via-transparent to-transparent" />
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-28 md:py-36 text-center">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-28 md:py-36 text-center md:text-left">
         <div className="inline-flex items-center gap-2 mb-5 rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs uppercase tracking-wider">
           <span className="h-1.5 w-1.5 rounded-full bg-[#F81F2E]" /> Since 2013 • Kerala
         </div>
