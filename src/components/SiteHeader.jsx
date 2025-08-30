@@ -25,16 +25,22 @@ export default function SiteHeader() {
   ];
   const isActive = (href) => (href === "/" ? pathname === "/" : pathname?.startsWith(href));
   const linkBase =
-    "px-3 py-2 rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F81F2E] focus-visible:ring-offset-2 focus-visible:ring-offset-black";
+    "px-3 md:px-4 py-2 rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F81F2E] focus-visible:ring-offset-2 focus-visible:ring-offset-black";
 
   return (
     <header role="banner" className="sticky top-0 z-50 border-t-2 border-[#F81F2E]">
       <div className="backdrop-blur-md bg-black/60 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-          <Link href="/" aria-label="Go to homepage" className="flex items-center gap-3">
-            <Image src="/assets/logo-white.png" alt="Fashion Zoom logo" width={120} height={48} />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 md:h-20 flex items-center justify-between">
+          <Link href="/" aria-label="Go to homepage" className="flex items-center gap-3 pr-4 md:pr-8 shrink-0">
+            <Image
+              src="/assets/logo-white.png"
+              alt="Fashion Zoom logo"
+              width={120}
+              height={48}
+              className="h-10 w-auto md:h-12"
+            />
           </Link>
-          <nav className="hidden md:flex items-center gap-1" aria-label="Primary">
+          <nav className="hidden md:flex items-center gap-3 lg:gap-4 xl:gap-6" aria-label="Primary">
             {nav.map((item) => (
               <Link
                 key={item.href}
@@ -45,7 +51,7 @@ export default function SiteHeader() {
               </Link>
             ))}
           </nav>
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 md:gap-3">
             <button
               onClick={() => setLang(lang === "en" ? "ml" : "en")}
               className="px-2 py-1 rounded-md bg-white text-black hover:bg-gray-100 border text-xs"
@@ -68,13 +74,13 @@ export default function SiteHeader() {
       {/* Mobile menu */}
       {open && (
         <div className="md:hidden bg-black/90 text-white backdrop-blur-md border-b border-white/10">
-          <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 grid gap-1" aria-label="Mobile">
+          <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2 grid gap-1" aria-label="Mobile">
             {nav.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
                 onClick={() => setOpen(false)}
-                className={`${linkBase} block ${isActive(item.href) ? "bg-white/10" : "hover:bg-white/10"}`}
+                className={`${linkBase} block text-base py-3 border-b border-white/10 last:border-0 ${isActive(item.href) ? "bg-white/10" : "hover:bg-white/10"}`}
               >
                 {item.label}
               </Link>
