@@ -67,17 +67,17 @@ export default function ShowsPage() {
           <Carousel className="px-10">
             <CarouselContent>
               {[
-                { src: '/assets/showcase/frame-65.png', alt: 'Season poster – Frame 65' },
-                { src: '/assets/showcase/poster-a4-6.png', alt: 'Season poster – A4 6' },
-                { src: '/assets/showcase/frame-66.png', alt: 'Season poster – Frame 66' },
-                { src: '/assets/showcase/poster-a4-7.png', alt: 'Season poster – A4 7' },
-                { src: '/assets/showcase/story-3.png', alt: 'Instagram story creative 3' },
-                { src: '/assets/showcase/story-8.png', alt: 'Instagram story creative 8' },
+              { src: '/assets/showcase/webp/frame-65.webp', alt: 'Season poster – Frame 65' },
+              { src: '/assets/showcase/webp/poster-a4-6.webp', alt: 'Season poster – A4 6' },
+              { src: '/assets/showcase/webp/frame-66.webp', alt: 'Season poster – Frame 66' },
+              { src: '/assets/showcase/webp/poster-a4-7.webp', alt: 'Season poster – A4 7' },
+              { src: '/assets/showcase/webp/story-3.webp', alt: 'Instagram story creative 3' },
+              { src: '/assets/showcase/webp/story-8.webp', alt: 'Instagram story creative 8' },
               ].map((p) => (
                 <CarouselItem key={p.src} className="basis-full md:basis-1/3">
                   <div className="rounded-lg border bg-white shadow-sm overflow-hidden">
                     <AspectRatio ratio={3/4}>
-                      <Image src={p.src} alt={p.alt} fill className="object-cover" />
+                      <Image src={p.src} alt={p.alt} fill sizes="(min-width: 768px) 33vw, 100vw" className="object-cover" />
                     </AspectRatio>
                   </div>
                 </CarouselItem>

@@ -10,12 +10,12 @@ export const metadata = {
 
 export default function PortfolioPage() {
   const images = [
-    { src: "/assets/showcase/frame-65.png", alt: "Poster – Frame 65" },
-    { src: "/assets/showcase/poster-a4-6.png", alt: "Poster – A4-6" },
-    { src: "/assets/showcase/frame-66.png", alt: "Poster – Frame 66" },
-    { src: "/assets/showcase/poster-a4-7.png", alt: "Poster – A4-7" },
-    { src: "/assets/showcase/story-3.png", alt: "Instagram Story 3" },
-    { src: "/assets/showcase/story-8.png", alt: "Instagram Story 8" },
+    { src: "/assets/showcase/webp/frame-65.webp", alt: "Poster – Frame 65" },
+    { src: "/assets/showcase/webp/poster-a4-6.webp", alt: "Poster – A4-6" },
+    { src: "/assets/showcase/webp/frame-66.webp", alt: "Poster – Frame 66" },
+    { src: "/assets/showcase/webp/poster-a4-7.webp", alt: "Poster – A4-7" },
+    { src: "/assets/showcase/webp/story-3.webp", alt: "Instagram Story 3" },
+    { src: "/assets/showcase/webp/story-8.webp", alt: "Instagram Story 8" },
   ];
   return (
     <section className="py-16">
@@ -25,7 +25,7 @@ export default function PortfolioPage() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {images.map((img, i) => (
             <Reveal key={img.src} className="rounded-lg overflow-hidden border shadow-sm bg-white">
-              <Image src={img.src} alt={img.alt} width={1080} height={1440} className="w-full h-auto" />
+              <Image src={img.src} alt={img.alt} width={1080} height={1440} sizes="(min-width: 1024px) 33vw, 100vw" className="w-full h-auto" />
             </Reveal>
           ))}
         </div>
