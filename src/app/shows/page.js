@@ -17,12 +17,12 @@ export default function ShowsPage() {
       {/* Page-specific hero */}
       <section className="relative isolate overflow-hidden text-white">
         <Image
-          src="/assets/ledwall/webp/ledwall.webp"
-          alt="Fashion Zoom LED wall visual — Kerala fashion shows"
+          src="/assets/hero/academy-hero.png"
+          alt="Fashion Zoom editorial portrait in red hat — fashion shows"
           fill
           priority
           sizes="100vw"
-          className="object-cover object-center -z-10"
+          className="object-cover object-right -z-10"
         />
         <div className="absolute inset-0 -z-10 bg-black/55" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32">
