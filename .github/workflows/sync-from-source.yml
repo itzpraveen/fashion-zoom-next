@@ -1,0 +1,34 @@
+name: Sync from Source Repo
+
+on:
+  push:
+    branches: ["main"]
+  workflow_dispatch:
+  schedule:
+    - cron: "0 */6 * * *" # every 6 hours
+
+permissions:
+  contents: write
+
+jobs:
+  pull_mirror:
+    if: github.repository == 'fashionzoommagazinefz-cmyk/fashion-zoom-next'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Mirror source -> destination (this repo)
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          SRC="https://github.com/itzpraveen/fashion-zoom-next.git"
+          DST="https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+          git clone --mirror "$SRC" mirror
+          cd mirror
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          # Prune and push branches and tags to this repository
+          git remote set-url --push origin "$DST"
+          git push --prune --force \
+            +refs/heads/*:refs/heads/* \
+            +refs/tags/*:refs/tags/*
+
