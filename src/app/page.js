@@ -59,12 +59,12 @@ export default function Home() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
-              { city: 'Kochi', date: 'Dates announcing soon', img: '/assets/fashion-show-1.jpg' },
-              { city: 'Calicut', date: 'Dates announcing soon', img: '/assets/fashion-show-2.jpg' },
-              { city: 'Trivandrum', date: 'Dates announcing soon', img: '/assets/fashion-show-3.jpg' },
+              { city: 'Kochi', date: 'Dates announcing soon', img: '/assets/showcase/frame-65.png' },
+              { city: 'Calicut', date: 'Dates announcing soon', img: '/assets/showcase/poster-a4-6.png' },
+              { city: 'Trivandrum', date: 'Dates announcing soon', img: '/assets/showcase/frame-66.png' },
             ].map((e, i) => (
               <Reveal key={e.city} className="rounded-lg overflow-hidden border shadow-sm bg-white">
-                <Image src={e.img} alt={`Fashion Zoom upcoming show — ${e.city}`} width={800} height={600} className="w-full h-auto" />
+                <Image src={e.img} alt={`Fashion Zoom upcoming show — ${e.city} poster`} width={1080} height={1440} className="w-full h-auto" />
                 <div className="p-4 flex items-center justify-between">
                   <div>
                     <div className="font-semibold">{e.city}</div>

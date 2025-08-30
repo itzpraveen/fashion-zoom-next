@@ -1,6 +1,9 @@
 import Image from "next/image";
 import PageTitle from "@/components/PageTitle";
 import Reveal from "@/components/Reveal";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
+import { AspectRatio } from "@/components/ui/aspect-ratio";
+import Link from "next/link";
 
 export const metadata = {
   title: "Fashion Shows — Fashion Zoom",
@@ -56,6 +59,35 @@ export default function ShowsPage() {
             <Reveal delay={0.05}>
               <Image src="/assets/fashion-show-2.jpg" alt="Fashion Show 2" width={800} height={600} className="rounded-lg shadow-lg w-full h-auto" />
             </Reveal>
+          </div>
+        </div>
+
+        <h3 className="text-2xl font-bold mb-4">Posters & Creatives</h3>
+        <div className="relative mb-12">
+          <Carousel className="px-10">
+            <CarouselContent>
+              {[
+                { src: '/assets/showcase/frame-65.png', alt: 'Season poster – Frame 65' },
+                { src: '/assets/showcase/poster-a4-6.png', alt: 'Season poster – A4 6' },
+                { src: '/assets/showcase/frame-66.png', alt: 'Season poster – Frame 66' },
+                { src: '/assets/showcase/poster-a4-7.png', alt: 'Season poster – A4 7' },
+                { src: '/assets/showcase/story-3.png', alt: 'Instagram story creative 3' },
+                { src: '/assets/showcase/story-8.png', alt: 'Instagram story creative 8' },
+              ].map((p) => (
+                <CarouselItem key={p.src} className="basis-full md:basis-1/3">
+                  <div className="rounded-lg border bg-white shadow-sm overflow-hidden">
+                    <AspectRatio ratio={3/4}>
+                      <Image src={p.src} alt={p.alt} fill className="object-cover" />
+                    </AspectRatio>
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious className="-left-2" />
+            <CarouselNext className="-right-2" />
+          </Carousel>
+          <div className="text-right text-sm">
+            <Link href="/portfolio" className="underline underline-offset-4 text-[#F81F2E]">See all creatives →</Link>
           </div>
         </div>
         <h3 className="text-xl font-semibold mb-4">Season history</h3>
