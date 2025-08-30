@@ -90,6 +90,28 @@ export default function ShowsPage() {
             <Link href="/portfolio" className="underline underline-offset-4 text-[#F81F2E]">See all creatives →</Link>
           </div>
         </div>
+
+        <h3 className="text-2xl font-bold mb-4">LED Wall Previews</h3>
+        <div className="relative mb-12">
+          <Carousel className="px-10">
+            <CarouselContent>
+              {[
+                { src: '/assets/ledwall/webp/ledwall.webp', alt: 'LED wall visual 1' },
+                { src: '/assets/ledwall/webp/ledwall2.webp', alt: 'LED wall visual 2' },
+              ].map((p) => (
+                <CarouselItem key={p.src} className="basis-full md:basis-1/2">
+                  <div className="rounded-lg border bg-white shadow-sm overflow-hidden">
+                    <AspectRatio ratio={16/9}>
+                      <Image src={p.src} alt={p.alt} fill sizes="(min-width: 768px) 50vw, 100vw" className="object-cover" />
+                    </AspectRatio>
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious className="-left-2" />
+            <CarouselNext className="-right-2" />
+          </Carousel>
+        </div>
         <h3 className="text-xl font-semibold mb-4">Season history</h3>
         <div className="grid md:grid-cols-2 gap-4 text-sm text-gray-700">
           <Reveal className="rounded-lg border p-4">
