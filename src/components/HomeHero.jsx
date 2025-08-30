@@ -9,8 +9,8 @@ export default function HomeHero() {
   return (
     <section className="relative isolate overflow-hidden text-white">
       <Image
-        src="/assets/hero/academy-hero.webp"
-        alt="Fashion Zoom Modeling Academy — red editorial portrait"
+        src="/assets/hero/academy-hero.png"
+        alt="Fashion Zoom editorial portrait in red hat"
         fill
         priority
         sizes="100vw"
