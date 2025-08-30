@@ -13,7 +13,28 @@ export const metadata = {
 
 export default function ShowsPage() {
   return (
-    <section className="py-16">
+    <>
+      {/* Page-specific hero */}
+      <section className="relative isolate overflow-hidden text-white">
+        <Image
+          src="/assets/ledwall/webp/ledwall.webp"
+          alt="Fashion Zoom LED wall visual — Kerala fashion shows"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-center -z-10"
+        />
+        <div className="absolute inset-0 -z-10 bg-black/55" />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32">
+          <div className="inline-flex items-center gap-2 mb-4 rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs uppercase tracking-wider">
+            <span className="h-1.5 w-1.5 rounded-full bg-[#F81F2E]" /> Kerala • Seasonal Events
+          </div>
+          <h1 className="text-4xl md:text-6xl font-bold leading-tight">Kerala Fashion Shows</h1>
+          <p className="text-lg md:text-xl text-gray-200 mt-3 max-w-2xl">Inclusive categories for Kids, Teens, and Adults — walk the runway with us.</p>
+        </div>
+      </section>
+
+      <section className="py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <PageTitle sectionKey="shows" />
         <div className="mb-10 text-lg text-gray-700">Walk seasonal fashion shows across Kerala — inclusive categories, supervised rehearsals, and real runway experience.</div>
@@ -151,5 +172,6 @@ export default function ShowsPage() {
         }}
       />
     </section>
+    </>
   );
 }
