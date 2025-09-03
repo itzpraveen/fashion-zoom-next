@@ -3,6 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useLocale } from "@/app/providers";
+import { Instagram } from "lucide-react";
 
 export default function SiteFooter() {
   const { lang, setLang } = useLocale();
@@ -24,6 +25,17 @@ export default function SiteFooter() {
           <div className="flex items-center gap-4">
             <Link href="/privacy" className="underline underline-offset-4">Privacy Policy</Link>
             <Link href="/inclusion" className="underline underline-offset-4">Diversity & Inclusion</Link>
+          </div>
+          <div className="flex items-center gap-3">
+            <Link
+              href="https://www.instagram.com/fashion_zoom_magazine/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram"
+              className="inline-flex items-center justify-center h-9 w-9 rounded-full border border-white/20 text-gray-300 hover:text-white hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F81F2E] focus-visible:ring-offset-2 focus-visible:ring-offset-black"
+            >
+              <Instagram className="h-4 w-4" />
+            </Link>
           </div>
           <button onClick={() => setLang(lang === 'en' ? 'ml' : 'en')} className="px-2 py-1 rounded-md bg-white text-black hover:bg-gray-100 border" aria-label="Toggle language">
             {lang === 'en' ? 'മലയാളം' : 'English'}
