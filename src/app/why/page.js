@@ -14,6 +14,8 @@ export default function WhyPage() {
     { icon: Camera, title: "Portfolio Shoots", text: "Editorial‑style photos and reels to start pitching to brands and agencies." },
     { icon: Award, title: "Real Shows", text: "Walk seasonal fashion shows across Kerala with categories for every age." },
     { icon: MapPin, title: "State‑wide Network", text: "Multiple city chapters, alumni network, and brand partners to open doors." },
+    { icon: Award, title: "Micro‑Celebrity Plan", text: "A practical 100‑day social media chart to grow presence and engagement." },
+    { icon: Users, title: "Pro Production", text: "3‑star venues, 32‑ft ramp, lighting, sound, LED wall, and dedicated co‑ordinators." },
   ];
   return (
     <section className="py-16 bg-white">
@@ -22,7 +24,7 @@ export default function WhyPage() {
           <PageTitle sectionKey="why" />
           <p className="text-lg text-gray-600 max-w-3xl mx-auto mt-6">A complete ecosystem to get show‑ready — guided by mentors, supported by state‑wide events, and backed by a strong alumni network.</p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {items.map(({ icon: Icon, title, text }, i) => (
             <Reveal key={title} className="text-center rounded-lg border p-6 bg-white shadow-sm transition-transform hover:-translate-y-1" delay={i * 0.05}>
               <Icon className="h-10 w-10 mx-auto text-[#F81F2E] mb-3" />

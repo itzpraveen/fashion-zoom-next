@@ -39,7 +39,15 @@ function AdmissionsForm() {
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         <h1 className="text-4xl font-bold text-gray-900 mb-3">Admissions</h1>
         <div className="h-1 w-16 bg-[#F81F2E] rounded mb-6" />
-        <p className="text-gray-700 mb-6">Request a callback. Our team will contact you with batch dates, fees and a short orientation call.</p>
+        <div className="text-gray-700 mb-6 space-y-3">
+          <p>Request a callback. Our team will contact you with batch dates, fees, and a short orientation call.</p>
+          <ol className="list-decimal pl-5 text-sm space-y-1">
+            <li>Apply for a callback</li>
+            <li>Orientation + batch selection (Kids / Teens / Adults)</li>
+            <li>Training + portfolio + show day</li>
+            <li>Best images featured in our digital magazine (casting support)</li>
+          </ol>
+        </div>
         {submitted && (
           <div className="mb-4 text-sm text-emerald-700 bg-emerald-50 border border-emerald-200 rounded px-3 py-2">Thanks! We’ll contact you within 24 hours.</div>
         )}
@@ -111,6 +119,7 @@ function AdmissionsForm() {
               {loading ? "Submitting…" : "Request Callback"}
             </button>
             <span className="text-xs text-neutral-500">By submitting, you agree to our terms.</span>
+            <a href="/docs/fashion-zoom-academy-brochure.pdf" target="_blank" rel="noopener" className="ml-auto text-xs underline underline-offset-4">Download brochure</a>
           </div>
         </form>
       </div>
