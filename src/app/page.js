@@ -28,7 +28,7 @@ export default function Home() {
                   },
                   {
                     href: "/shows",
-                    img: "/assets/fashion-show-2.jpg",
+                    img: "https://www.fashionzoom.co.in/_next/image?url=%2Fassets%2Fledwall%2Fwebp%2Fledwall2.webp&w=1920&q=75",
                     alt: "Kerala Traditional Fest banner",
                     title: "KERALA TRADITIONAL FEST",
                     subtitle: "Season highlights",
