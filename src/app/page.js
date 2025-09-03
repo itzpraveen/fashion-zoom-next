@@ -3,12 +3,60 @@ import Link from "next/link";
 import HomeHero from "@/components/HomeHero";
 import Reveal from "@/components/Reveal";
 import Testimonials from "@/components/Testimonials";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
+import { AspectRatio } from "@/components/ui/aspect-ratio";
 
 export default function Home() {
   return (
     <div className="bg-white">
       {/* Hero */}
       <HomeHero />
+
+      {/* Featured banners (Homepage) */}
+      <section className="py-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="relative">
+            <Carousel className="px-8">
+              <CarouselContent>
+                {[
+                  {
+                    href: "/academy",
+                    img: "/assets/hero/academy-hero.png?v=2",
+                    alt: "Fashion Zoom — Modeling Academy banner",
+                    title: "Modeling Academy",
+                    subtitle: "പ്രൊഫഷണൽ മോഡലാകാം!",
+                  },
+                  {
+                    href: "/shows",
+                    img: "/assets/fashion-show-2.jpg",
+                    alt: "Kerala Traditional Fest banner",
+                    title: "KERALA TRADITIONAL FEST",
+                    subtitle: "Season highlights",
+                  },
+                ].map((b) => (
+                  <CarouselItem key={b.title} className="basis-full md:basis-1/2">
+                    <Link href={b.href} className="block rounded-xl overflow-hidden border bg-black/80">
+                      <div className="relative">
+                        <AspectRatio ratio={16/9}>
+                          <Image src={b.img} alt={b.alt} fill sizes="(min-width: 768px) 50vw, 100vw" className="object-cover" />
+                          <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/30 to-black/0" />
+                          <div className="absolute inset-0 p-6 md:p-10 flex flex-col justify-center text-white">
+                            <div className="text-sm opacity-80">Fashion Zoom</div>
+                            <div className="text-3xl md:text-5xl font-bold leading-tight mt-1">{b.title}</div>
+                            <div className="text-base md:text-lg opacity-90 mt-2">{b.subtitle}</div>
+                          </div>
+                        </AspectRatio>
+                      </div>
+                    </Link>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              <CarouselPrevious className="-left-2" />
+              <CarouselNext className="-right-2" />
+            </Carousel>
+          </div>
+        </div>
+      </section>
 
       {/* Shows-first Highlights */}
       <section className="py-16 bg-gray-50">
