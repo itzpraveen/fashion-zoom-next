@@ -21,7 +21,7 @@ export default function MagazinePage() {
       .filter((e) => e.isFile())
       .map((e) => e.name)
       .filter((n) => /\.(jpe?g|png|webp|avif)$/i.test(n))
-      .sort((a, b) => a.localeCompare(b));
+      .sort((a, b) => b.localeCompare(a));
   } catch (_) {
     // Directory may not exist yet; show guidance below.
     covers = [];

@@ -7,7 +7,8 @@
     "build": "next build --turbopack",
     "start": "next start",
     "lint": "eslint",
-    "sync:covers": "node scripts/sync-covers.mjs"
+    "sync:covers": "node scripts/sync-covers.mjs",
+    "optimize:covers": "node scripts/optimize-covers.mjs"
   },
   "dependencies": {
     "@radix-ui/react-aspect-ratio": "^1.1.7",
@@ -22,7 +23,8 @@
     "react-dom": "19.1.0",
     "tailwind-merge": "^3.3.1",
     "tw-animate-css": "^1.3.7",
-    "zod": "^4.1.5"
+    "zod": "^4.1.5",
+    "sharp": "^0.33.5"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",

@@ -2,7 +2,8 @@
 import fs from 'fs';
 import path from 'path';
 
-const SRC = path.join(process.cwd(), 'tmp');
+// Legacy copier: copies any image from /tmp/magazine_covers into public/magazine-covers
+const SRC = process.env.SRC || '/tmp/magazine_covers';
 const DST = path.join(process.cwd(), 'public', 'magazine-covers');
 
 function ensureDir(p) {
@@ -34,4 +35,3 @@ function main() {
 }
 
 main();
-

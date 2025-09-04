@@ -18,7 +18,7 @@ export default function Home() {
       .filter((e) => e.isFile())
       .map((e) => e.name)
       .filter((n) => /\.(jpe?g|png|webp|avif)$/i.test(n))
-      .sort((a, b) => a.localeCompare(b))
+      .sort((a, b) => b.localeCompare(a))
       .slice(0, 8);
   } catch (_) {
     coverFiles = [];
