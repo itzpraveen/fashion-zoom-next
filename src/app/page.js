@@ -5,8 +5,24 @@ import Reveal from "@/components/Reveal";
 import Testimonials from "@/components/Testimonials";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
+import fs from "fs";
+import path from "path";
 
 export default function Home() {
+  // Read up to 8 cover images from public/magazine-covers
+  const coversDir = path.join(process.cwd(), "public", "magazine-covers");
+  let coverFiles = [];
+  try {
+    const entries = fs.readdirSync(coversDir, { withFileTypes: true });
+    coverFiles = entries
+      .filter((e) => e.isFile())
+      .map((e) => e.name)
+      .filter((n) => /\.(jpe?g|png|webp|avif)$/i.test(n))
+      .sort((a, b) => a.localeCompare(b))
+      .slice(0, 8);
+  } catch (_) {
+    coverFiles = [];
+  }
   return (
     <div className="bg-white">
       {/* Hero */}
@@ -126,6 +142,40 @@ export default function Home() {
           <div className="text-center mt-8">
             <Link href="/shows" className="inline-flex items-center underline underline-offset-4 text-[#F81F2E]">All shows & seasons →</Link>
           </div>
+        </div>
+      </section>
+
+      {/* Featured Covers (from public/magazine-covers) */}
+      <section className="py-12 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-end justify-between mb-6">
+            <div>
+              <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-1">Featured Covers</h2>
+              <p className="text-sm text-gray-600">Recent magazine covers from Fashion Zoom</p>
+            </div>
+            <Link href="/magazine" className="text-sm underline underline-offset-4 text-[#F81F2E]">View all covers →</Link>
+          </div>
+          {coverFiles.length > 0 ? (
+            <div className="relative">
+              <Carousel className="px-8">
+                <CarouselContent>
+                  {coverFiles.map((f) => (
+                    <CarouselItem key={f} className="basis-1/2 md:basis-1/5">
+                      <div className="rounded-lg border bg-white shadow-sm overflow-hidden">
+                        <AspectRatio ratio={3/4}>
+                          <Image src={`/magazine-covers/${f}`} alt={`Cover ${f}`} fill sizes="(min-width: 768px) 20vw, 50vw" className="object-cover" />
+                        </AspectRatio>
+                      </div>
+                    </CarouselItem>
+                  ))}
+                </CarouselContent>
+                <CarouselPrevious className="-left-2" />
+                <CarouselNext className="-right-2" />
+              </Carousel>
+            </div>
+          ) : (
+            <div className="text-sm text-gray-600 border rounded-md p-4 bg-white">Add files to <code className="px-1 py-0.5 bg-gray-50 rounded border">public/magazine-covers/</code> to show featured covers here.</div>
+          )}
         </div>
       </section>
 
